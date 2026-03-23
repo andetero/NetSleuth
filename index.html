@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetSleuth – Network Diagnostics Toolkit</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0a0f;
+            --card: #13131a;
+            --border: #1e1e2e;
+            --text: #f2f2f7;
+            --subtle: #8e8e93;
+            --cyan: #00d4ff;
+            --green: #30d158;
+            --link: #0a84ff;
+            --shadow: rgba(0, 212, 255, 0.08);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f2f2f7;
+                --card: #ffffff;
+                --border: #e0e0e8;
+                --text: #111111;
+                --subtle: #6e6e73;
+                --cyan: #0071e3;
+                --green: #28a745;
+                --link: #007aff;
+                --shadow: rgba(0, 113, 227, 0.08);
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 48px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+        .nav-logo { font-size: 1.2rem; font-weight: 700; color: var(--text); }
+        .nav-logo span { color: var(--cyan); }
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { color: var(--subtle); text-decoration: none; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--text); }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 100px 24px 80px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #0d1b2a, #1a3a4a);
+            border-radius: 28px;
+            margin: 0 auto 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        .hero h1 span { color: var(--cyan); }
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--subtle);
+            margin-bottom: 40px;
+        }
+        .app-store-btn {
+            display: inline-block;
+            background: var(--text);
+            color: var(--bg);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .app-store-btn:hover { opacity: 0.8; text-decoration: none; }
+
+        /* FEATURES */
+        .section {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .section-sub {
+            text-align: center;
+            color: var(--subtle);
+            margin-bottom: 48px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .feature {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+        .feature-icon { font-size: 2rem; margin-bottom: 12px; }
+        .feature-name { font-weight: 700; font-size: 0.95rem; margin-bottom: 6px; }
+        .feature-desc { font-size: 0.8rem; color: var(--subtle); }
+
+        /* DIVIDER */
+        hr { border: none; border-top: 1px solid var(--border); max-width: 860px; margin: 0 auto; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: var(--subtle);
+            font-size: 0.85rem;
+        }
+        footer a { color: var(--subtle); text-decoration: none; margin: 0 12px; }
+        footer a:hover { color: var(--text); }
+        .footer-links { margin-bottom: 12px; }
+
+        @media (max-width: 640px) {
+            nav { padding: 16px 24px; }
+            .nav-links { gap: 16px; }
+            .hero h1 { font-size: 2.2rem; }
+            .features { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-logo">Net<span>Sleuth</span></div>
+    <div class="nav-links">
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="app-icon">🔍</div>
+    <h1>Net<span>Sleuth</span></h1>
+    <p class="subtitle">Network Diagnostics Toolkit for iPhone & iPad</p>
+    <a href="https://apps.apple.com" class="app-store-btn">Download on the App Store</a>
+</section>
+
+<hr>
+
+<section class="section">
+    <h2 class="section-title">Everything you need</h2>
+    <p class="section-sub">Eight powerful tools in one clean app</p>
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">📡</div>
+            <div class="feature-name">Ping</div>
+            <div class="feature-desc">Check host reachability and response time</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🔗</div>
+            <div class="feature-name">Traceroute</div>
+            <div class="feature-desc">Map every network hop to a destination</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <div class="feature-name">Port Checker</div>
+            <div class="feature-desc">Test if specific ports are open or closed</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🌐</div>
+            <div class="feature-name">DNS Lookup</div>
+            <div class="feature-desc">Query A, AAAA, MX, TXT, CNAME & NS records</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📄</div>
+            <div class="feature-name">WHOIS</div>
+            <div class="feature-desc">Look up domain registration details</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">🔐</div>
+            <div class="feature-name">SSL Inspector</div>
+            <div class="feature-desc">Inspect certificates and expiry dates</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📶</div>
+            <div class="feature-name">WiFi Info</div>
+            <div class="feature-desc">View local IP, gateway and DNS servers</div>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">📍</div>
+            <div class="feature-name">IP Info</div>
+            <div class="feature-desc">Geolocate any IP with map and ISP details</div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<footer>
+    <div class="footer-links">
+        <a href="support.html">Support</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="mailto:joe@pyoba.com">Contact</a>
+    </div>
+    <div>© 2026 Pyoba. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
